@@ -42,7 +42,7 @@ def getcurrent_welcome_settings(chat_id):
 
 
 def addwelcome_setting(chat_id, previous_welcome, reply, f_mesg_id):
-    to_check = get_welcome(chat_id)
+    to_check = getwelcome(chat_id)
     if not to_check:
         adder = JoinWelcome(chat_id, previous_welcome, reply, f_mesg_id)
         SESSION.add(adder)
