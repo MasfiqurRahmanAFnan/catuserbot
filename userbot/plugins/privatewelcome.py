@@ -6,7 +6,7 @@ from userbot.plugins.sql_helper.welcomesql import (
     rmwelcome_setting,
 )
 
-from .. import CMD_HELP, LOGS, bot
+from .. import CMD_HELP, bot
 from ..utils import admin_cmd, edit_or_reply, sudo_cmd
 
 if Config.PRIVATE_GROUP_BOT_API_ID is None:
@@ -54,7 +54,8 @@ async def _(event):
                 current_saved_welcome_message = msg_o.message
             elif cws.reply:
                 current_saved_welcome_message = cws.reply
-        current_message = await event.client.send_message(userid ,
+        current_message = await event.client.send_message(
+            userid,
             current_saved_welcome_message.format(
                 mention=mention,
                 title=title,
@@ -73,6 +74,7 @@ async def _(event):
             file=file_media,
             parse_mode="html",
         )
+
 
 @borg.on(admin_cmd(pattern=r"savepwel ?(.*)"))
 @borg.on(sudo_cmd(pattern=r"savepwel ?(.*)", allow_sudo=True))
