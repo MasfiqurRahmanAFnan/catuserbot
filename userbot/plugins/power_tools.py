@@ -1,5 +1,5 @@
 import sys
-from asyncio import sleep
+from time import sleep
 from os import execl
 
 from ..utils import admin_cmd, edit_or_reply, sudo_cmd
