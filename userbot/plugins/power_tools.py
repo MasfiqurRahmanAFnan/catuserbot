@@ -44,7 +44,7 @@ async def _(event):
             "You put the bot to sleep for " + str(counter) + " seconds",
         )
     event = await edit_or_reply(event, f"`ok, let me sleep for {counter} seconds`")
-    await sleep(counter)
+    sleep(counter)
     await event.edit("`OK, I'm awake now.`")
 
 
