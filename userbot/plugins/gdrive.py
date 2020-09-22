@@ -117,7 +117,8 @@ GDRIVE_ID = re.compile(
 @bot.on(sudo_cmd(pattern="gauth(?: |$)", allow_sudo=True))
 async def generate_credentials(gdrive):
     """ - Only generate once for long run - """
-    if helper.get_credentials(str(gdrive.from_id)) is not None:
+    hmm = bot.uid
+    if helper.get_credentials(str(hmm)) is not None:
         await edit_or_reply(gdrive, "`You already authorized token...`")
         await asyncio.sleep(1.5)
         await gdrive.delete()
@@ -203,8 +204,9 @@ async def create_app(gdrive):
 @bot.on(sudo_cmd(pattern="greset(?: |$)", allow_sudo=True))
 async def reset_credentials(gdrive):
     """ - Reset credentials or change account - """
+    hmm = bot.uid
     gdrive = await edit_or_reply(gdrive, "`Resetting information...`")
-    helper.clear_credentials(str(gdrive.from_id))
+    helper.clear_credentials(str(hmm))
     await gdrive.edit("`Done...`")
     await asyncio.sleep(1)
     await gdrive.delete()
@@ -647,7 +649,6 @@ async def reset_parentId():
 
 
 async def lists(gdrive):
-    await gdrive.edit("`Getting information...`")
     checker = gdrive.pattern_match.group(1)
     if checker is not None:
         page_size = int(gdrive.pattern_match.group(1).strip("-l "))
