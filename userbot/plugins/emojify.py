@@ -43,7 +43,7 @@ async def itachi(event):
     emoji, arg = args.split(" ", 1)
     if not char_is_emoji(emoji):
         arg = args
-        emoji "😺"    
+        emoji = "😺"    
     string = "  ".join(arg).lower()
     for chutiya in string:
         if chutiya in emojify.kakashitext:
