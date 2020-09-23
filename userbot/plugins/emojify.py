@@ -4,8 +4,10 @@ modified by  @mrconfused
 Userbot plugin for CatUserbot
 """
 import emoji
-from . import CMD_HELP , fonts as emojify
+
 from ..utils import admin_cmd, edit_or_reply, sudo_cmd
+from . import CMD_HELP
+from . import fonts as emojify
 
 
 @borg.on(admin_cmd(pattern="emoji(?: |$)(.*)"))
@@ -43,7 +45,7 @@ async def itachi(event):
     emoji, arg = args.split(" ", 1)
     if not char_is_emoji(emoji):
         arg = args
-        emoji = "😺"    
+        emoji = "😺"
     string = "  ".join(arg).lower()
     for chutiya in string:
         if chutiya in emojify.kakashitext:
@@ -53,10 +55,11 @@ async def itachi(event):
             string = string.replace(chutiya, bsdk)
     await edit_or_reply(event, string)
 
+
 def char_is_emoji(character):
     return character in emoji.UNICODE_EMOJI
-    
-    
+
+
 CMD_HELP.update(
     {
         "emojify": "**Plugin :** `emojify`\
