@@ -247,7 +247,7 @@ async def download(event, gdrive, service, uri=None):
     """ - Download files to local then upload - """
     if not isdir(TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
-        required_file_name = None
+        required_file_name = ""
     if uri:
         full_path = os.getcwd() + TMP_DOWNLOAD_DIRECTORY.strip(".")
         if isfile(uri) and uri.endswith(".torrent"):
