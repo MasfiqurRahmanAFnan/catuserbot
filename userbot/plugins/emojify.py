@@ -27,7 +27,7 @@ async def itachi(event):
     for a in string:
         if a in emojify.kakashitext:
             char = emojify.kakashiemoji[emojify.kakashitext.index(a)]
-            result +=char
+            result += char
         else:
             result += a
     await edit_or_reply(event, result)
@@ -57,10 +57,8 @@ async def itachi(event):
     result = ""
     for a in string:
         if a in emojify.kakashitext:
-            char = emojify.itachiemoji[emojify.kakashitext.index(a)].format(
-                cj=emoji
-            )
-            result +=char
+            char = emojify.itachiemoji[emojify.kakashitext.index(a)].format(cj=emoji)
+            result += char
         else:
             result += a
     await edit_or_reply(event, result)
