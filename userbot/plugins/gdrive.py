@@ -47,10 +47,10 @@ from . import (
     LOGS,
     TMP_DOWNLOAD_DIRECTORY,
     CancelProcess,
+    aria2,
     bot,
-    progress,
-    aria2, 
     check_metadata,
+    progress,
 )
 from .sql_helper import google_drive_sql as helper
 
