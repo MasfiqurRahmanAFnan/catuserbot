@@ -6,17 +6,21 @@
 # you may not use this file except in compliance with the License.
 
 import math
-import os
 from asyncio import sleep
-from subprocess import PIPE, Popen
-
-import aria2p
-from requests import get
 
 from ..utils import admin_cmd, humanbytes
-from . import CMD_HELP, LOGS, TMP_DOWNLOAD_DIRECTORY, bot, subprocess_run ,trackers, aria2 , check_metadata
+from . import (
+    CMD_HELP,
+    LOGS,
+    TMP_DOWNLOAD_DIRECTORY,
+    aria2,
+    bot,
+    check_metadata,
+    subprocess_run,
+)
 
 EDIT_SLEEP_TIME_OUT = 5
+
 
 @bot.on(admin_cmd(pattern=r"fromurl(?: |$)(.*)"))
 async def aurl_download(event):
