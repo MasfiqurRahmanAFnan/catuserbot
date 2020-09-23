@@ -13,7 +13,6 @@ from telethon.sessions import StringSession
 
 from var import Var
 
-
 StartTime = time.time()
 catversion = "2.7.4"
 
