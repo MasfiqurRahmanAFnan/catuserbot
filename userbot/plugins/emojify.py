@@ -42,14 +42,18 @@ async def itachi(event):
             event, "`What am I Supposed to do with this stupid, Give me a text. `"
         )
         return
-    emoji, arg = args.split(" ", 1)
+    try:
+        emoji, arg = args.split(" ", 1)
+    except:
+        arg = args
+        emoji = "😺"
     if not char_is_emoji(emoji):
         arg = args
         emoji = "😺"
     string = "  ".join(arg).lower()
     for chutiya in string:
         if chutiya in emojify.kakashitext:
-            bsdk = emojify.itachiemoji[emojify.itachitext.index(chutiya)].format(
+            bsdk = emojify.itachiemoji[emojify.kakashitext.index(chutiya)].format(
                 cj=emoji
             )
             string = string.replace(chutiya, bsdk)
