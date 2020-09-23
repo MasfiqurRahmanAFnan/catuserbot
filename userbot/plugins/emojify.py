@@ -23,11 +23,14 @@ async def itachi(event):
         )
         return
     string = "  ".join(args).lower()
-    for chutiya in string:
-        if chutiya in emojify.kakashitext:
-            bsdk = emojify.kakashiemoji[emojify.kakashitext.index(chutiya)]
-            string = string.replace(chutiya, bsdk)
-    await edit_or_reply(event, string)
+    result = ""
+    for a in string:
+        if a in emojify.kakashitext:
+            char = emojify.kakashiemoji[emojify.kakashitext.index(a)]
+            result +=char
+        else:
+            result += a
+    await edit_or_reply(event, result)
 
 
 @borg.on(admin_cmd(pattern="cmoji(?: |$)(.*)"))
@@ -51,13 +54,16 @@ async def itachi(event):
         arg = args
         emoji = "😺"
     string = "  ".join(arg).lower()
-    for chutiya in string:
-        if chutiya in emojify.kakashitext:
-            bsdk = emojify.itachiemoji[emojify.kakashitext.index(chutiya)].format(
+    result = ""
+    for a in string:
+        if a in emojify.kakashitext:
+            char = emojify.itachiemoji[emojify.kakashitext.index(a)].format(
                 cj=emoji
             )
-            string = string.replace(chutiya, bsdk)
-    await edit_or_reply(event, string)
+            result +=char
+        else:
+            result += a
+    await edit_or_reply(event, result)
 
 
 def char_is_emoji(character):
