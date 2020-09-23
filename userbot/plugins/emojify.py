@@ -24,7 +24,7 @@ async def itachi(event):
         return
     result = ""
     for a in string:
-        a = a.lower() 
+        a = a.lower()
         if a in emojify.kakashitext:
             char = emojify.kakashiemoji[emojify.kakashitext.index(a)]
             result += char
@@ -48,10 +48,8 @@ async def itachi(event):
     try:
         emoji, arg = args.split(" ", 1)
     except:
-        arg = args
         emoji = "😺"
     if not char_is_emoji(emoji):
-        arg = args
         emoji = "😺"
     result = ""
     for a in string:
