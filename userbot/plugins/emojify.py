@@ -22,9 +22,9 @@ async def itachi(event):
             event, "`What am I Supposed to do with this stupid, Give me a text. `"
         )
         return
-    string = "  ".join(args).lower()
     result = ""
     for a in string:
+        a = a.lower() 
         if a in emojify.kakashitext:
             char = emojify.kakashiemoji[emojify.kakashitext.index(a)]
             result += char
@@ -53,9 +53,9 @@ async def itachi(event):
     if not char_is_emoji(emoji):
         arg = args
         emoji = "😺"
-    string = "  ".join(arg).lower()
     result = ""
     for a in string:
+        a = a.lower()
         if a in emojify.kakashitext:
             char = emojify.itachiemoji[emojify.kakashitext.index(a)].format(cj=emoji)
             result += char
