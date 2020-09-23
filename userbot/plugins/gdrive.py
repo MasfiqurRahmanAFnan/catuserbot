@@ -954,7 +954,7 @@ async def cancel_process(gdrive):
 @bot.on(admin_cmd(pattern="ugd(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="ugd(?: |$)(.*)", allow_sudo=True))
 async def google_drive(gdrive):
-    reply = ''
+    reply = ""
     """ - Parsing all google drive function - """
     value = gdrive.pattern_match.group(1)
     file_path = None
@@ -981,7 +981,7 @@ async def google_drive(gdrive):
         global parent_Id
         folder_name = await get_raw_name(folder_path)
         folder = await create_dir(service, folder_name)
-        parent_Id = folder.get('id')
+        parent_Id = folder.get("id")
         webViewURL = "https://drive.google.com/drive/folders/" + parent_Id
         try:
             await task_directory(gdrive, service, folder_path)
@@ -1016,9 +1016,9 @@ async def google_drive(gdrive):
         await gdrive.delete()
         return None
     else:
-        if re.findall(r'\bhttps?://drive\.google\.com\S+', value):
+        if re.findall(r"\bhttps?://drive\.google\.com\S+", value):
             """ - Link is google drive fallback to download - """
-            value = re.findall(r'\bhttps?://drive\.google\.com\S+', value)
+            value = re.findall(r"\bhttps?://drive\.google\.com\S+", value)
             for uri in value:
                 try:
                     reply += await download_gdrive(gdrive, service, uri)
@@ -1041,7 +1041,7 @@ async def google_drive(gdrive):
                 return True
             else:
                 return None
-        elif re.findall(r'\bhttps?://.*\.\S+', value) or "magnet:?" in value:
+        elif re.findall(r"\bhttps?://.*\.\S+", value) or "magnet:?" in value:
             uri = value.split()
         else:
             for fileId in value.split():
