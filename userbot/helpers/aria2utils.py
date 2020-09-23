@@ -1,13 +1,14 @@
-import math
 import os
-from asyncio import sleep
 from subprocess import PIPE, Popen
 
 import aria2p
 from requests import get
-from ..uniborgConfig import Config
+
 from .. import LOGS
+from ..uniborgConfig import Config
+
 TMP_DOWNLOAD_DIRECTORY = Config.TMP_DOWNLOAD_DIRECTORY
+
 
 def subprocess_run(cmd):
     subproc = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True, universal_newlines=True)
@@ -44,4 +45,3 @@ async def check_metadata(gid):
     new_gid = file.followed_by_ids[0]
     LOGS.info("Changing GID " + gid + " to" + new_gid)
     return new_gid
-
