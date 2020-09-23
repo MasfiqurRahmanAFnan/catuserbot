@@ -611,7 +611,7 @@ ZALG_LIST = [
     ],
 ]
 
-kakashitext =  [
+kakashitext = [
     "a",
     "b",
     "c",
@@ -650,7 +650,6 @@ kakashitext =  [
     "8",
     "9",
 ]
-
 
 
 kakashiemoji = [
